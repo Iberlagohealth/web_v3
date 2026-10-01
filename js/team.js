@@ -22,7 +22,7 @@ const WORK_TEAM = [
  "Maria Roser Velarde Nieto",
  "Moisés Gonzálvez Juan",
  "Patricia Cavadini",
- "Joana Patricia Da Silva Abrantes",
+ "Joana Abrantes",
  "Samuel Castán Alloza",
  "Elena Urbano Sojo"
 ];
