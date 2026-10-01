@@ -36,7 +36,7 @@ const PROFILES={
   bioEn:"Ignacio García Bocanegra holds degrees in Veterinary Medicine (2001) and Food Science and Technology (2003), as well as a PhD in Veterinary Sciences (2005), all from the University of Córdoba (UCO). He is a Diplomate of the European College of Zoological Medicine (ECZM) in Wildlife Population Health. He worked as a veterinary officer at the Andalusian Wildlife Analysis and Diagnosis Centre (2006–2008) and as a postdoctoral researcher at the Centre for Research in Animal Health (CReSA–IRTA, 2008–2009). In 2009 he joined UCO's Department of Animal Health, where he teaches undergraduate and postgraduate courses, and in 2020 became Professor of Animal Health. He heads the Animal Health and Zoonoses Research Group (GISAZ) and is a member of the ENZOEM Competitive Research Unit.",
   interestsEs:"Su actividad investigadora se centra en la epidemiología y el control de las enfermedades transmisibles de importancia para la sanidad animal y la salud pública, desde una perspectiva de Una Sola Salud (One Health).",
   interestsEn:"His research focuses on the epidemiology and control of transmissible diseases of importance to animal and public health from a One Health perspective.",
-  email:"nacho.garcia@uco.es",profile:"https://www.scopus.com/authid/detail.uri?authorId=35326759400",orcid:"https://orcid.org/0000-0003-3388-2604",researcherId:"http://www.researcherid.com/rid/G-1443-2016",scopus:"http://www.scopus.com/inward/authorDetails.url?authorID=35326759400&partnerID=MN8TOARS",
+  email:"nacho.garcia@uco.es",profile:"https://www.scopus.com/authid/detail.uri?authorId=35326759400",orcid:"https://orcid.org/0000-0003-3388-2604",researcherId:"G-1443-2016", researcherIdUrl:"http://www.researcherid.com/rid/G-1443-2016",scopus:"http://www.scopus.com/inward/authorDetails.url?authorID=35326759400&partnerID=MN8TOARS",
   externalLinks:[
    ["Loop","http://loop.frontiersin.org/people/398992/overview?referrer=orcid_profile"],
    ["Ciência ID","http://www.cienciavitae.pt/3414-7657-8010"],
@@ -51,7 +51,7 @@ const PROFILES={
   bioEn:"Carlos Rouco is an Associate Professor of Ecology in the Department of Plant Biology and Ecology at the University of Seville, Spain. He previously worked at the University of Córdoba and held postdoctoral positions at the Doñana Biological Station (EBD-CSIC) and Manaaki Whenua–Landcare Research in New Zealand. He has also undertaken research stays at the University of Porto and UiT The Arctic University of Norway.",
   interestsEs:"Es ecólogo de fauna silvestre y su investigación se centra en la ecología, epidemiología, conservación y gestión de poblaciones de mamíferos, con especial atención a los lagomorfos. Combina seguimiento de campo a largo plazo, captura-marcaje-recaptura, ecología espacial, vigilancia epidemiológica, enfoques experimentales y modelización estadística avanzada. Lidera proyectos sobre salud y conservación de lagomorfos ibéricos. Presidió los comités Organizador y Científico del 8th World Lagomorph Conference y forma parte de las juntas de la World Lagomorph Society y la SECEM, coordina el Grupo de Mamíferos Terrestres del IUCN SSC Spain Species Specialist Group y es editor asociado de Mammalian Biology.",
   interestsEn:"He is a wildlife ecologist whose research focuses on the ecology, epidemiology, conservation and management of wild mammal populations, with particular emphasis on lagomorphs. His interdisciplinary work combines long-term field monitoring, capture–mark–recapture techniques, spatial ecology, epidemiological surveillance, experimental approaches and advanced statistical modelling. He leads projects focused on the health and conservation of Iberian lagomorphs. He chaired the Organising and Scientific Committees of the 8th World Lagomorph Conference and serves on the boards of the World Lagomorph Society and SECEM, coordinates the Terrestrial Mammals Group within the IUCN SSC Spain Species Specialist Group, and is an Associate Editor of Mammalian Biology.",
-  email:"crouco@us.es",profile:"https://prisma.us.es/investigador/8693",orcid:"https://orcid.org/0000-0003-1026-3253",researcherId:"I-3088-2015",researcherIdUrl:"https://www.researcherid.com/rid/I-3088-2015"
+  email:"crouco@us.es",profile:"https://prisma.us.es/investigador/8693",orcid:"https://orcid.org/0000-0003-1026-3253",researcherId:"I-3088-2015",researcherIdUrl:"https://www.researcherid.com/rid/I-3088-2015", scopus:"22136332200",scopusUrl:"https://www.scopus.com/authid/detail.uri?authorId=2"
  },
  "Sabrina Castro Scholten":{
   photo:"assets/team/sabrina-castro-scholten.jpg",
@@ -194,7 +194,11 @@ function openProfile(name,role,fallbackBio=""){
   ? `<a href="${profile.researcherIdUrl}" target="_blank" rel="noopener">ResearcherID ↗</a>`
   : profile.researcherId
     ? `<span>Researcher ID · ${profile.researcherId}</span>`
-    : ""}${profile.scopus?`<span>Scopus ID · ${profile.scopus}</span>`:""}${(profile.externalLinks||[]).map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`).join("")}`:"";
+    : ""}$${profile.scopusUrl
+  ? `<a href="${profile.scopusUrl}" target="_blank" rel="noopener">Scopus ↗</a>`
+  : profile.scopus
+    ? `<span>Scopus ID · ${profile.scopus}</span>`
+    : ""}${(profile.externalLinks||[]).map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`).join("")}`:"";
  document.querySelector("#profile-pending").classList.toggle("hidden",Boolean(profile));
  profileDialog.showModal();
 }
