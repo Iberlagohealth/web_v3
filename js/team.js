@@ -51,7 +51,7 @@ const PROFILES={
   bioEn:"Carlos Rouco is an Associate Professor of Ecology in the Department of Plant Biology and Ecology at the University of Seville, Spain. He previously worked at the University of Córdoba and held postdoctoral positions at the Doñana Biological Station (EBD-CSIC) and Manaaki Whenua–Landcare Research in New Zealand. He has also undertaken research stays at the University of Porto and UiT The Arctic University of Norway.",
   interestsEs:"Es ecólogo de fauna silvestre y su investigación se centra en la ecología, epidemiología, conservación y gestión de poblaciones de mamíferos, con especial atención a los lagomorfos. Combina seguimiento de campo a largo plazo, captura-marcaje-recaptura, ecología espacial, vigilancia epidemiológica, enfoques experimentales y modelización estadística avanzada. Lidera proyectos sobre salud y conservación de lagomorfos ibéricos. Presidió los comités Organizador y Científico del 8th World Lagomorph Conference y forma parte de las juntas de la World Lagomorph Society y la SECEM, coordina el Grupo de Mamíferos Terrestres del IUCN SSC Spain Species Specialist Group y es editor asociado de Mammalian Biology.",
   interestsEn:"He is a wildlife ecologist whose research focuses on the ecology, epidemiology, conservation and management of wild mammal populations, with particular emphasis on lagomorphs. His interdisciplinary work combines long-term field monitoring, capture–mark–recapture techniques, spatial ecology, epidemiological surveillance, experimental approaches and advanced statistical modelling. He leads projects focused on the health and conservation of Iberian lagomorphs. He chaired the Organising and Scientific Committees of the 8th World Lagomorph Conference and serves on the boards of the World Lagomorph Society and SECEM, coordinates the Terrestrial Mammals Group within the IUCN SSC Spain Species Specialist Group, and is an Associate Editor of Mammalian Biology.",
-  email:"crouco@us.es",profile:"https://prisma.us.es/investigador/8693",orcid:"https://orcid.org/0000-0003-1026-3253",researcherId:"http://www.researcherid.com/rid/I-3088-2015"
+  email:"crouco@us.es",profile:"https://prisma.us.es/investigador/8693",orcid:"https://orcid.org/0000-0003-1026-3253",researcherId:"I-3088-2015",researcherIdUrl:"https://www.researcherid.com/rid/I-3088-2015"
  },
  "Sabrina Castro Scholten":{
   photo:"assets/team/sabrina-castro-scholten.jpg",
@@ -190,7 +190,11 @@ function openProfile(name,role,fallbackBio=""){
  document.querySelector("#profile-bio").textContent=profile?.[lang==="es"?"bioEs":"bioEn"]||fallbackBio;
  document.querySelector("#profile-interests").textContent=profile?.[lang==="es"?"interestsEs":"interestsEn"]||"";
  const links=document.querySelector("#profile-links");
- links.innerHTML=profile?`${profile.email?`<a href="mailto:${profile.email}">Email</a>`:""}${profile.profile?`<a href="${profile.profile}" target="_blank" rel="noopener">Profile ↗</a>`:""}${profile.orcid?`<a href="${profile.orcid}" target="_blank" rel="noopener">ORCID ↗</a>`:""}${profile.researcherId?`<span>Researcher ID · ${profile.researcherId}</span>`:""}${profile.scopus?`<span>Scopus ID · ${profile.scopus}</span>`:""}${(profile.externalLinks||[]).map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`).join("")}`:"";
+ links.innerHTML=profile?`${profile.email?`<a href="mailto:${profile.email}">Email</a>`:""}${profile.profile?`<a href="${profile.profile}" target="_blank" rel="noopener">Profile ↗</a>`:""}${profile.orcid?`<a href="${profile.orcid}" target="_blank" rel="noopener">ORCID ↗</a>`:""}${profile.researcherIdUrl
+  ? `<a href="${profile.researcherIdUrl}" target="_blank" rel="noopener">ResearcherID ↗</a>`
+  : profile.researcherId
+    ? `<span>Researcher ID · ${profile.researcherId}</span>`
+    : ""}${profile.scopus?`<span>Scopus ID · ${profile.scopus}</span>`:""}${(profile.externalLinks||[]).map(([label,url])=>`<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`).join("")}`:"";
  document.querySelector("#profile-pending").classList.toggle("hidden",Boolean(profile));
  profileDialog.showModal();
 }
