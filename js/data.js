@@ -22,6 +22,7 @@ const PUBLICATIONS = [
 
 const ACTIVITIES = [
  {year:2026,date:"22–26 Jun",type:"oral",place:"Sevilla, España",event:"8th World Lagomorph Conference",title:"<em>Coxiella burnetii</em> exposure in wild lagomorphs in the Iberian Peninsula"},
+ {year:2026,date:"22–26 Jun",type:"oral",place:"Sevilla, España",event:"8th World Lagomorph Conference",title:"Demographic resilience of European brown hare populations at their southern edge distribution despite habitat heterogeneity and lagovirus outbreaks"},
  {year:2026,date:"22–26 Jun",type:"oral",place:"Sevilla, España",event:"8th World Lagomorph Conference",title:"Serological study of <em>Encephalitozoon cuniculi</em> in domestic and wild lagomorphs in the Iberian Peninsula"},
  {year:2026,date:"22–26 Jun",type:"oral",place:"Sevilla, España",event:"8th World Lagomorph Conference",title:"Hepatitis E Virus in Farmed Rabbits in the Iberian Peninsula: Seroepidemiology and Risk Factors"},
  {year:2026,date:"22–26 Jun",type:"oral",place:"Sevilla, España",event:"8th World Lagomorph Conference",title:"Long-term spatial monitoring of <em>Leishmania infantum</em> in European wild rabbits"},
